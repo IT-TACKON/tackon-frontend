@@ -67,9 +67,10 @@ body {
 
 /* Colors of the buttons*/
 .button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
-    color: #ff0000;
+    color: #fff;
+    background-color: #0bbfdb;
 }
 
 .button-inactive{
-    color: #000;
+    color: #FFF;
 }
