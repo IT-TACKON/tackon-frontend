@@ -10,14 +10,14 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
    </head>
    <body class="text-center">
-      <form class="form-signin">
+      <form class="form-signin" action="/auth" method="POST">
          <img class="mb-4" src="css/Tackon.svg" alt="" width="72" height="72" >
          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
          <label for="inputEmail" class="sr-only">Email address</label>
 
-         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
          <label for="inputPassword" class="sr-only">Password</label>
-         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
          <div class="checkbox mb-3">
             <label>
                <input type="checkbox" value="remember-me"> Remember me
