@@ -27,7 +27,7 @@ session_start();
 $_SESSION['status'] = $result->status;
 $_SESSION['authorization'] = $result->status;
 header("location:../../");
-}elseif{
+}else if($result->status == "error"){
 	echo "daftar dulu bosque";
 }
 ?>

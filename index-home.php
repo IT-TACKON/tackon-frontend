@@ -1,9 +1,11 @@
 <?php
 session_start();
 if(isset($_SESSION['status'])){
-   if($_SESSION['status']!="success"){
-      header("location:login");
+   if($_SESSION['status']!=="success"){
+      header("location:login/");
    }
+}else{
+   header("location:login/");
 }
 ?>
 <!DOCTYPE html>
