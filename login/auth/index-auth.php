@@ -2,24 +2,6 @@
 $email = $_POST['e-mail'];
 $password = $_POST['password'];
 
-echo "<br> email".$email;
-echo "<br> password".$password;
-// $ch = curl_init();
-// curl_setopt($ch, CURLOPT_URL, "http://localhost:8080/login");
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// curl_setopt($ch, CURLOPT_POST, true);
-
-// $data = array(
-//     'email' => $email,
-//     'password' => $password
-// );
-
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-// $output = curl_exec($ch);
-// $info = curl_getinfo($ch);
-// curl_close($ch);
-// $result  = json_decode($output);
-// print_r($result); 
 
 $url = 'http://localhost:8080/login';
 $myvars = 'email=' . $email . '&password=' . $password;
@@ -34,5 +16,18 @@ curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 $response = curl_exec( $ch );
 curl_close($ch);
 $result  = json_decode($response);
-print_r($result);
+
+// echo "<br> email".$email;
+// echo "<br> password".$password; 
+// print("<br>Status :".$result->status);
+// print("<br>Akses Token : ".$result->accessToken);
+
+if($result->status == "success"){
+session_start();
+$_SESSION['status'] = $result->status;
+$_SESSION['authorization'] = $result->status;
+header("location:../../");
+}elseif{
+	echo "daftar dulu bosque";
+}
 ?>

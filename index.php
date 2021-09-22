@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(isset($_SESSION['status'])){
+   if($_SESSION['status']!="success"){
+      header("location:login");
+   }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>

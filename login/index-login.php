@@ -1,3 +1,21 @@
+<?php 
+session_start();
+if(isset($_SESSION['status'])){
+   if($_SESSION['status']=="success"){
+      header("location:../");
+   }
+}
+if(isset($_GET['m'])){
+if($_GET['m']=="sukses"){
+$pesan = "Pasien <b>".$_SESSION['nama']."</b> berhasil ditambahkan";
+$alert = "alert-info";
+}
+if($_GET['m']=="gagal"){
+$pesan = "<b>Token</b> salah, coba lagi.";
+$alert = "alert-danger";
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -11,7 +29,7 @@
    </head>
    <body class="text-center">
       <form class="form-signin" action="auth/" method="POST">
-         <img class="mb-4" src="css/Tackon.svg" alt="" width="72" height="72" >
+         <img class="mb-4" src="../css/Tackon.svg" alt="" width="72" height="72" >
          <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
          <label for="inputEmail" class="sr-only">Email address</label>
 
