@@ -25,7 +25,7 @@ $result  = json_decode($response);
 if($result->status == "success"){
 session_start();
 $_SESSION['status'] = $result->status;
-$_SESSION['authorization'] = $result->status;
+$_SESSION['authorization'] = $result->accessToken;
 header("location:../../");
 }else if($result->status == "error"){
 	echo "daftar dulu bosque";

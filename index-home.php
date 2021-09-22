@@ -7,6 +7,7 @@ header("location:login/");
 }else{
 header("location:login/");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +26,7 @@ header("location:login/");
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
    </head>
    <body>
+       
       <!-- Nav -->
       <div class="container  ">
          <nav class="navbar fixed-top navbar-light text-left  bg-info" style="padding: 0px;">
@@ -91,6 +93,9 @@ header("location:login/");
             </div>
          </div>
       </footer>
+      <button   type="button" class="btn btn-lg btn-info py-2 button-inactive floatings" >
+<i class="fas fa-plus fa-lg"></i>
+</button>
       <!-- Bootstrap core JavaScript -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
@@ -133,5 +138,14 @@ border: 2px solid #17a2b8!important;
 }
 .card-body {
 padding:  1rem;
+}
+.floatings{
+position:fixed !important;
+bottom:80px;
+right:16px;
+margin:0;
+padding:15px 20px !important;
+border-radius: 60px;
+box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
 }
 </style>
