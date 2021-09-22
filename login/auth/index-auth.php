@@ -1,7 +1,9 @@
 <?php
-$email = $_POST['email'];
+$email = $_POST['e-mail'];
 $password = $_POST['password'];
 
+echo "<br> email".$email;
+echo "<br> password".$password;
 // $ch = curl_init();
 // curl_setopt($ch, CURLOPT_URL, "http://localhost:8080/login");
 // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

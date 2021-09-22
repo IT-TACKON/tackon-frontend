@@ -13,10 +13,9 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl);
-$err = curl_error($curl);
-// print_r($response);
+$err = curl_error($curl); 
 $result  = json_decode($response);
 
-print_r( $result->message);
+print_r($result->message);
 curl_close($curl);
 ?>
