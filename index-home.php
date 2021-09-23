@@ -69,6 +69,9 @@ header("location:login/");
          
          <!-- Account page -->
          <?php require_once('page/page-account.php');?>
+
+          <!-- Account page -->
+          <?php require_once('page/page-create.php');?>
       </div>
 
       <!-- Bottom Nav Bar -->
