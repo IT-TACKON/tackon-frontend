@@ -56,5 +56,7 @@ foreach($result['questions'] as $quest){
 <?php 
 }
 ?>
-
+ <button   type="button" class="btn btn-lg btn-info py-2 button-inactive floatings" >
+<i class="fas fa-plus fa-lg"></i>
+</button>
 </div>
