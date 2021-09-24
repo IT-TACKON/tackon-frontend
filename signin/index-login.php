@@ -30,19 +30,17 @@ $alert = "alert-danger";
    <body class="text-center">
       <form class="form-signin" action="auth/" method="POST">
          <img class="mb-4" src="../css/Tackon.svg" alt="" width="72" height="72" >
-         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+         <h1 class="h4 mb-3 font-weight-normal">Please sign in</h1>
          <label for="inputEmail" class="sr-only">Email address</label>
 
          <input type="email" id="inputEmail" name="e-mail" class="form-control" placeholder="Email address" required >
          <label for="inputPassword" class="sr-only">Password</label>
          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-         <div class="checkbox mb-3">
-            <label>
-               <input type="checkbox" value="remember-me"> Remember me
-            </label>
-         </div>
-         <button class="btn btn-lg btn-info btn-block" type="submit">Sign in</button>
+         
+         <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Sign in</button>
+         <p class="mt-2 mb-1">Don’t have an account? <a href="../signup/" class="ext-decoration-none">Sign up</a>
          <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+
       </form>
    </body>
 </html>

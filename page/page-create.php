@@ -7,13 +7,13 @@
       </div>
    </div>
    <div class="card my-1">
-   <div class="card-header bg-info text-white text-nowrap" >
-      <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+      <div class="card-header bg-info text-white text-nowrap" >
+         <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+      </div>
+      <div class="card-body">
+         <h5 class="card-title"><?= $quest['title'] ?></h5>
+         <p class="card-text"><?= $quest['text'] ?></p>
+         <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
+      </div>
    </div>
-   <div class="card-body">
-      <h5 class="card-title"><?= $quest['title'] ?></h5>
-      <p class="card-text"><?= $quest['text'] ?></p>
-      <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
-   </div>
-</div>
 </div>

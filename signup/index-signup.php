@@ -24,24 +24,24 @@ $alert = "alert-danger";
       <meta name="description" content="Template for the new android layout">
       <meta name="author" content="Andrew Henry">
       <link rel="icon" href="#">
-      <title>Tackon</title>
+      <title>Sign Up - Tackon</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
    </head>
    <body class="text-center">
-      <form class="form-signin" action="auth/" method="POST">
+      <form class="form-signin" action="register/" method="POST">
          <img class="mb-4" src="../css/Tackon.svg" alt="" width="72" height="72" >
-         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+         <h1 class="h4 mb-3 font-weight-normal">Create your account</h1>
+         <label for="inputEmail" class="sr-only">Username</label>
+         <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required >
          <label for="inputEmail" class="sr-only">Email address</label>
-
          <input type="email" id="inputEmail" name="e-mail" class="form-control" placeholder="Email address" required >
          <label for="inputPassword" class="sr-only">Password</label>
-         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-         <div class="checkbox mb-3">
-            <label>
-               <input type="checkbox" value="remember-me"> Remember me
-            </label>
-         </div>
+         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" minlength="8" required>
          
+         <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Sign up</button>
+         <p class="mt-2 mb-1">Already have an account? <a href="../signin/" class="ext-decoration-none">Sign in</a>
+         <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+
       </form>
    </body>
 </html>
