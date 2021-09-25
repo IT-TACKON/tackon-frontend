@@ -1,6 +1,3 @@
-//Global variable for starting page
-var currentPageId = "page-home";
-var currentSelectorId = "home";
 
 //Function for getting the button ids
 function getButtons(){

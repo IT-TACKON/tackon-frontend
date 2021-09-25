@@ -1,5 +1,4 @@
-
-<div id="page-home" class="active">
+<div id="page-home" <?= $active_home ?>>
 <?php
 $token = $_SESSION['authorization']; 
 $headers[] = 'authorization: '.$token;

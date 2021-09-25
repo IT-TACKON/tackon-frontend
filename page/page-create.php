@@ -1,4 +1,4 @@
-<div id="page-create" class="inactive mt-5">
+<div id="page-create" <?php echo $active_create; ?> class="mt-5" >
    <div class="alert bg-info col-xl-4 col-md-6 col-sm-12"   role="alert">
       <h2 style="color: white;">Crate Your Question !!</h2>
    </div>

@@ -8,6 +8,31 @@ header("location:signin/");
 header("location:signin/");
 }
 
+$active_home =  "class='inactive'";
+$active_search =  "class='inactive'";
+$active_account =  "class='inactive'";
+$active_create =  "class='inactive'";
+
+if(isset($_GET['p'])){
+   if($_GET['p']=="search"){
+      $page = "feed";
+      $active_search = "class='active'";
+   }else if($_GET['p']=="create"){
+      $page = "create";
+      $active_create = "class='active'";
+   }else if($_GET['p']=="account"){
+      $page = "account";
+      $active_account = "class='active'";
+   }else if($_GET['p']=="home"){
+      $page = "home";
+      $active_home = "class='active'";
+  }
+}else{
+   $page="home";
+   $active_home = "class='active'";
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,17 +104,17 @@ header("location:signin/");
          <div class="container mt-1">
             <div class="row  pl-3 pr-3">
                <div class="col " id="buttonGroup">
-                  <button id="home" type="button" class="btn btn-lg btn-block btn-info py-2 button-active" >
+                  <button id="home" type="button" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-home fa-lg"></i>
                   </button>
                </div>
                <div class="col">
-                  <button id="feed" type="button" class="btn btn-lg btn-block btn-info py-2 button-inactive" >
+                  <button id="feed" type="button" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-search fa-lg"></i>
                   </button>
                </div>
                <div class="col">
-                  <button id="account" type="button" class="btn btn-lg btn-block btn-info py-2 button-inactive" >
+                  <button id="account" type="button" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-user fa-lg"></i>
                   </button>
                </div>
@@ -102,6 +127,11 @@ header("location:signin/");
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
       <!-- JS needed for this page -->
+      <script type="text/javascript">
+         //Global variable for starting page
+      var currentPageId = "page-<?php echo $page; ?>";
+      var currentSelectorId = "<?php echo $page; ?>";
+      </script>
       <script src="js/main.js"></script>
       <script defer src="js/all.js"></script>
    </body>

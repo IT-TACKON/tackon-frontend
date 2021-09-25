@@ -1,4 +1,4 @@
-<div id="page-account" class="inactive">
+<div id="page-account" <?= $active_account ?>>>
    <?php
    $token = $_SESSION['authorization'];
    $headers[] = 'authorization: '.$token;
