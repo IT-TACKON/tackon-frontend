@@ -107,7 +107,7 @@ header("location:signin/");
    </body>
 </html>
 <style type="text/css">
-.btn-info, .form-control-lg{
+.btn, .form-control-lg{
 border-radius: 10px;
 }
 .searchs {
@@ -149,4 +149,6 @@ padding:15px 20px !important;
 border-radius: 60px;
 box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.btn-label {position: relative;left: -12px;display: inline-block;padding: 10px 12px;background: rgba(0,0,0,0.15);border-radius: 10px 0 0 10px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0; border-radius: 10px  10px;} 
 </style>
