@@ -36,11 +36,11 @@ $alert = "alert-danger";
          <label for="inputEmail" class="sr-only">Email address</label>
          <input type="email" id="inputEmail" name="e-mail" class="form-control" placeholder="Email address" required >
          <label for="inputPassword1" class="sr-only">Password</label>
-         <input type="password" id="inputPassword" name="password" onchange='matchPassword();'class="form-control" placeholder="Password" required >
+         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required >
          <label for="inputPassword2" class="sr-only">Confirm password</label>
-         <input type="password" id="inputPassword2" name="password2" onchange='matchPassword();'class="form-control" placeholder="Confirm password" minlength="8" required>
+         <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Confirm password" minlength="8" required>
          
-         <button class="btn btn-lg btn-info btn-block mt-3" onclick="matchPassword()" type="submit" id="submit">Sign up</button>
+         <button class="btn btn-lg btn-info btn-block mt-3" type="submit" id="submit">Sign up</button>
          <p class="mt-2 mb-1">Already have an account? <a href="../signin/" class="ext-decoration-none">Sign in</a>
          <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
       </form>
@@ -101,13 +101,9 @@ font-size: 16px;
 .form-signin .form-control:focus {
 z-index: 2;
 }
-.form-signin input[type="email"] {
+.form-signin input {
 margin-bottom: -1px;
 border-bottom-right-radius: 0;
 border-bottom-left-radius: 0;
-}
-.form-signin input[type="password"] {
-border-top-left-radius: 0;
-border-top-right-radius: 0;
-}
+} 
 </style>
