@@ -6,13 +6,12 @@ if(isset($_SESSION['status'])){
    }
 }
 if(isset($_GET['m'])){
-if($_GET['m']=="sukses"){
-$pesan = "Pasien <b>".$_SESSION['nama']."</b> berhasil ditambahkan";
-$alert = "alert-info";
-}
-if($_GET['m']=="gagal"){
-$pesan = "<b>Token</b> salah, coba lagi.";
-$alert = "alert-danger";
+if($_GET['m']=="reg"){
+$pesan = "<p class='mb-3 text-info'>Sign up success, please Sign in</p>"; 
+}else if($_GET['m']=="er-pass"){
+$pesan = "<p class='mb-3 text-danger'>Sign up failed, try again</p>"; 
+}else if($_GET['m']=="er-mail"){
+$pesan = "<p class='mb-3 text-danger'>Sign up failed, e-mail already used</p>"; 
 }
 }
 ?>
@@ -30,15 +29,15 @@ $alert = "alert-danger";
    <body class="text-center">
       <form class="form-signin" action="auth/" method="POST">
          <img class="mb-4" src="../css/Tackon.svg" alt="" width="72" height="72" >
-         <h1 class="h4 mb-3 font-weight-normal">Please sign in</h1>
+         <h1 class="h4 mb-3 font-weight-normal">Sign in</h1>
+         <?php if(isset($pesan)){echo $pesan;} ?>
          <label for="inputEmail" class="sr-only">Email address</label>
-
          <input type="email" id="inputEmail" name="e-mail" class="form-control" placeholder="Email address" required >
          <label for="inputPassword" class="sr-only">Password</label>
          <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
          
          <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Sign in</button>
-         <p class="mt-2 mb-1">Don’t have an account? <a href="../signup/" class="ext-decoration-none">Sign up</a>
+         <p class="mt-2 mb-1">Don’t have an account? <a href="../signup/" class="ext-decoration-none text-info">Sign up</a>
          <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
 
       </form>

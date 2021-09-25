@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 if(isset($_SESSION['status'])){
-   if($_SESSION['status']=="success"){
-      header("location:../");
-   }
+if($_SESSION['status']=="success"){
+header("location:../");
+}
 }
 if(isset($_GET['m'])){
 if($_GET['m']=="sukses"){
@@ -35,16 +35,32 @@ $alert = "alert-danger";
          <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required >
          <label for="inputEmail" class="sr-only">Email address</label>
          <input type="email" id="inputEmail" name="e-mail" class="form-control" placeholder="Email address" required >
-         <label for="inputPassword" class="sr-only">Password</label>
-         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" minlength="8" required>
+         <label for="inputPassword1" class="sr-only">Password</label>
+         <input type="password" id="inputPassword" name="password" onchange='matchPassword();'class="form-control" placeholder="Password" required >
+         <label for="inputPassword2" class="sr-only">Confirm password</label>
+         <input type="password" id="inputPassword2" name="password2" onchange='matchPassword();'class="form-control" placeholder="Confirm password" minlength="8" required>
          
-         <button class="btn btn-lg btn-info btn-block mt-3" type="submit">Sign up</button>
+         <button class="btn btn-lg btn-info btn-block mt-3" onclick="matchPassword()" type="submit" id="submit">Sign up</button>
          <p class="mt-2 mb-1">Already have an account? <a href="../signin/" class="ext-decoration-none">Sign in</a>
          <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
-
       </form>
    </body>
 </html>
+<script>
+var password = document.getElementById("inputPassword")
+  , confirm_password = document.getElementById("inputPassword2");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+</script>
 <style type="text/css">
 html,
 body {
@@ -64,7 +80,7 @@ padding-top: 40px;
 padding-bottom: 40px;
 }
 .btn{
-   border-radius: 20px;
+border-radius: 20px;
 }
 .form-signin {
 width: 100%;
@@ -91,7 +107,6 @@ border-bottom-right-radius: 0;
 border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
-margin-bottom: 10px;
 border-top-left-radius: 0;
 border-top-right-radius: 0;
 }
