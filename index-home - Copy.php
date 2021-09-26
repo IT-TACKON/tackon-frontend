@@ -7,14 +7,22 @@ header("location:signin/");
 }else{
 header("location:signin/");
 }
- 
-$active_home =  "class='inactive'"; 
+
+$active_home =  "class='inactive'";
+$active_search =  "class='inactive'";
+$active_account =  "class='inactive'";
 $active_create =  "class='inactive'";
 
 if(isset($_GET['p'])){
-   if($_GET['p']=="create"){
+   if($_GET['p']=="search"){
+      $page = "feed";
+      $active_search = "class='active'";
+   }else if($_GET['p']=="create"){
       $page = "create";
       $active_create = "class='active'";
+   }else if($_GET['p']=="account"){
+      $page = "account";
+      $active_account = "class='active'";
    }else if($_GET['p']=="home"){
       $page = "home";
       $active_home = "class='active'";
@@ -24,6 +32,7 @@ if(isset($_GET['p'])){
    $active_home = "class='active'";
 
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,9 +87,16 @@ if(isset($_GET['p'])){
       <!-- Page Content -->
       <div class="container-fluid py-2">
          <!-- Home page -->
-         <?php require_once('page/page-home.php');?> 
+         <?php require_once('page/page-home.php');?>
+         
+         <!-- Search page -->
+         <?php require_once('page/page-search.php');?>
+         
+         <!-- Account page -->
+         <?php require_once('page/page-account.php');?>
 
-         <?php require_once('page/page-create.php');?> 
+          <!-- Account page -->
+          <?php require_once('page/page-create.php');?>
       </div>
 
       <!-- Bottom Nav Bar -->
@@ -93,14 +109,14 @@ if(isset($_GET['p'])){
                   </button>
                </div>
                <div class="col">
-                  <a id="feed" href="search/" class="btn btn-lg btn-block btn-info py-2 " >
+                  <button id="feed" type="button" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-search fa-lg"></i>
-                  </a>
+                  </button>
                </div>
                <div class="col">
-                  <a id="account" href="account" class="btn btn-lg btn-block btn-info py-2 " >
+                  <button id="account" type="button" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-user fa-lg"></i>
-                  </a>
+                  </button>
                </div>
             </div>
          </div>
