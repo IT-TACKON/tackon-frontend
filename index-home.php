@@ -118,9 +118,13 @@ if(isset($_GET['p'])){
       </script>
       <script src="js/main.js"></script>
       <script defer src="js/all.js"></script>
+      <script src="js/textarea.js"></script>
+      <script>
+          autoResizeTextarea(document.querySelectorAll("textarea.auto-resize"), { maxHeight: 2000 })
+      </script>
    </body>
 </html>
-<style type="text/css">
+<style type="text/css"> 
 .btn, .form-control-lg{
 border-radius: 10px;
 }

@@ -28,16 +28,18 @@ if($result['status'] == "success"){
 }
 foreach($result['questions'] as $quest){
 ?>
-   <div class="card my-1">
-      <div class="card-header bg-info text-white text-nowrap" >
-         <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+   <a href="questions/<?= $quest['author'] ?>" class="text-dark text-decoration-none">
+      <div class="card my-1 ">
+         <div class="card-header bg-info text-white text-nowrap " >
+            <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+         </div>
+         <div class="card-body">
+            <h5 class="card-title"><?= $quest['title'] ?></h5>
+            <p class="card-text"><?= $quest['text'] ?></p>
+            <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
+         </div>
       </div>
-      <div class="card-body">
-         <h5 class="card-title"><?= $quest['title'] ?></h5>
-         <p class="card-text"><?= $quest['text'] ?></p>
-         <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a> 
-      </div>
-   </div>
+   </a>
 <?php 
 }
 foreach($result['questions'] as $quest){
@@ -48,8 +50,9 @@ foreach($result['questions'] as $quest){
       </div>
       <div class="card-body">
          <h5 class="card-title"><?= $quest['title'] ?></h5>
-         <p class="card-text"><?= $quest['text'] ?></p>
-         <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a> 
+         <p class="card-text" ><?= $quest['text'] ?></p>
+         <a href="#" class="btn btn-info" ><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
+         
       </div>
    </div>
 <?php 
