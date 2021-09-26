@@ -1,23 +1,22 @@
 <?php
 session_start();
 if(isset($_SESSION['status'])){
-if($_SESSION['status']!=="success"){
-header("location:signin/");
-}
+   if($_SESSION['status']!=="success"){
+   header("location:signin/");
+   }
 }else{
 header("location:signin/");
 }
 
 if(isset($_GET['s'])){
-if($_GET['s']=="find"){
-$display = 1;
-
-            
-
-}
+   if($_GET['s']=="find"){
+   $display = 1;
+   }else{
+   $display = 0;
+   }
 }else{
-$display = 0;
-}
+   $display = 0;
+   }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,9 +88,10 @@ $display = 0;
 
 
          <?php
+         }
          if($display==1){
          ?>
-         <div <?= $active_home; ?> id="page-home" >
+         <div   id="page-home" >
             <?php 
             foreach($result['questions'] as $quest){
             ?>
