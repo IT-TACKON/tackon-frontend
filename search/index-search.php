@@ -7,27 +7,16 @@ header("location:signin/");
 }else{
 header("location:signin/");
 }
-$active_home =  "class='inactive'";
-$active_search =  "class='inactive'";
-$active_account =  "class='inactive'";
-$active_create =  "class='inactive'";
-if(isset($_GET['p'])){
-if($_GET['p']=="search"){
-$page = "feed";
-$active_search = "class='active'";
-}else if($_GET['p']=="create"){
-$page = "create";
-$active_create = "class='active'";
-}else if($_GET['p']=="account"){
-$page = "account";
-$active_account = "class='active'";
-}else if($_GET['p']=="home"){
-$page = "home";
-$active_home = "class='active'";
+
+if(isset($_GET['s'])){
+if($_GET['s']=="find"){
+$display = 1;
+
+            
+
 }
 }else{
-$page="home";
-$active_home = "class='active'";
+$display = 0;
 }
 ?>
 <!DOCTYPE html>
@@ -81,20 +70,68 @@ $active_home = "class='active'";
       </div>
       <!-- Page Content -->
       <div class="container-fluid py-2">
+         <?php
+         if($display == 0){
+         ?>
          <!-- Search page -->
-         <div id="page-feed"   class=" mt-5 " >
-            <h2 class="mt-5">Search</h2>
+         <div id="page-feed" class=" mt-5 my-5 ">
+            <h2 class="align-middle">Search</h2>
             <form action="find/" method="POST">
                <div class="input-group mb-3">
                   <input type="text" minlength="2" name="keyword" class="form-control form-control-lg" placeholder="Topic, questions, etc." aria-label="search" aria-describedby="basic-addon2">
                   <div class="input-group-append">
-                     <button type="submit" class="input-group-text btn searchs text-white" id="basic-addon2">ㅤ<i class="fas fa-search fa-lg"></i>ㅤ</button type="submit">
+                     <button type="submit" class="input-group-text btn searchs text-white" id="basic-addon2">ㅤ<i class="fas fa-search fa-lg"></i></button>
                   </div>
                </div>
             </form>
-            
+         </div>
+
+
+
+         <?php
+         if($display==1){
+         ?>
+         <div <?= $active_home; ?> id="page-home" >
+            <?php 
+            foreach($result['questions'] as $quest){
+            ?>
+            <a href="questions/<?= $quest['author'] ?>" class="text-dark text-decoration-none">
+               <div class="card my-1 ">
+                  <div class="card-header bg-info text-white text-nowrap " >
+                     <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+                  </div>
+                  <div class="card-body">
+                     <h5 class="card-title"><?= $quest['title'] ?></h5>
+                     <p class="card-text"><?= $quest['text'] ?></p>
+                     <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
+                  </div>
+               </div>
+            </a>
+            <?php
+            }
+            foreach($result['questions'] as $quest){
+            ?>
+            <div class="card my-1">
+               <div class="card-header bg-info text-white text-nowrap" >
+                  <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title"><?= $quest['title'] ?></h5>
+                  <p class="card-text" ><?= $quest['text'] ?></p>
+                  <a href="#" class="btn btn-info" ><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
+                  
+               </div>
+            </div>
+            <?php
+            }
+            ?>
+            <button   type="button" id="create" class="btn btn-lg btn-info py-2 button-inactive floatings" >
+            <i class="fas fa-plus fa-lg"></i>
             </button>
          </div>
+         <?php
+         }
+         ?>
       </div>
       <!-- Bottom Nav Bar -->
       <footer class="footer pb-1">
