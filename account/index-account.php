@@ -1,24 +1,36 @@
 <?php
 session_start();
 if(isset($_SESSION['status'])){
-   if($_SESSION['status']!=="success"){
-   header("location:signin/");
-   }
+if($_SESSION['status']!=="success"){
+header("location:signin/");
+}
 }else{
 header("location:signin/");
 }
+ 
+$active_home =  "class='inactive'"; 
+$active_create =  "class='inactive'";
 
-if(isset($_GET['s'])){
-   if($_GET['s']=="200"){
-      $display = 1;
-      $questions = $_SESSION['questions'];
-   }else if($_GET['s']=="404"){
-      $display = 2;
-   }else {
-   $display = 0;
-   }
+if(isset($_GET['p'])){
+   if($_GET['p']=="edit"){
+      $page = "create";
+      $active_create = "class='active'";
+   }else if($_GET['p']=="account"){
+      $page = "home";
+      $active_home = "class='active'";
+  }else if($_GET['p']=="updated"){
+   $page = "home";
+      $active_home = "class='active'";
+      $updated = 1;
+  }else if($_GET['p']=="edit-f"){
+   $page = "create";
+      $active_create = "class='active'";
+      $edit_fail = 1;
+  }
 }else{
-   $display = 0;
+   $page="home";
+   $active_home = "class='active'";
+
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +50,7 @@ if(isset($_GET['s'])){
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
    </head>
    <body>
-      
+       
       <!-- Nav -->
       <div class="container  ">
          <nav class="navbar fixed-top navbar-light text-left  bg-info" style="padding: 0px;">
@@ -70,114 +82,58 @@ if(isset($_GET['s'])){
             </div>
          </nav>
       </div>
+
       <!-- Page Content -->
       <div class="container-fluid py-2">
-         <?php
-         if($display == 0){
-         ?>
-         <!-- Search page -->
-         <div id="page-feed" class=" mt-5 my-5 ">
-            <h2 class="align-middle">Search</h2>
-            <form action="find/" method="POST">
-               <div class="input-group mb-3">
-                  <input type="text" minlength="2" name="keyword" class="form-control form-control-lg" placeholder="Topic, questions, etc." aria-label="search" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                     <button type="submit" class="input-group-text btn searchs text-white" id="basic-addon2">ㅤ<i class="fas fa-search fa-lg"></i></button>
-                  </div>
-               </div>
-            </form>
-         </div>
+         <!-- Home page -->
+         
 
-
-
-        <?php
-         }
-         if($display == 2){
-         ?>
-         <!-- Search page -->
-         <div id="page-feed" class=" mt-5 my-5 ">
-            <h2 class="align-middle">Search</h2>
-            <form action="find/" method="POST">
-               <div class="input-group mb-3">
-                  <input type="text" minlength="2" name="keyword" class="form-control form-control-lg" placeholder="Topic, questions, etc." aria-label="search" aria-describedby="basic-addon2">
-                  <div class="input-group-append">
-                     <button type="submit" class="input-group-text btn searchs text-white" id="basic-addon2">ㅤ<i class="fas fa-search fa-lg"></i></button>
-                  </div>
-               </div>
-            </form>
-            <p class="text-muted">Sorry, nothing found. Try another keywords. :)</p>
-         </div>
-
-
-
-         <?php
-         }
-         if($display==1){
-         ?>
-         <div   id="page-home" >
-            <h4 class="align-middle ">Result for <span class="text-info ">"<?= $questions['keyword']; ?>"</h4>
-            <?php  
-            foreach($questions['questions'] as $quest){
-            ?>
-            <a href="questions/<?= $quest['author'] ?>" class="text-dark text-decoration-none">
-               <div class="card my-1 ">
-                  <div class="card-header bg-info text-white text-nowrap " >
-                     <b> @<?= $quest['author'] ?></b> <span class="text-nowrap text-opacity-50 "> · <?= substr($quest['created_at'], 0, 10)." ".substr($quest['created_at'], 11, 5) ?></span>
-                  </div>
-                  <div class="card-body">
-                     <h5 class="card-title"><?= $quest['title'] ?></h5>
-                     <p class="card-text"><?= $quest['text'] ?></p>
-                     <a href="#" class="btn btn-info"><?= $quest['upvote'] ?> <i class="fas fa-sort-amount-up"></i></a>
-                  </div>
-               </div>
-            </a>
-            <?php
-            } 
-            ?>
-            <a href="?s=0" id="home" class="btn btn-lg btn-info py-3 button-inactive floatings" > <i class="fas fa-times fa-lg"> </i></a>
-         </div>
-         <?php
-         }
-         ?>
+         <?php require_once('../page/page-account.php');?>
+          <?php require_once('../page/page-edit.php');?> 
       </div>
+
       <!-- Bottom Nav Bar -->
       <footer class="footer pb-1">
          <div class="container mt-1">
             <div class="row  pl-3 pr-3">
                <div class="col " id="buttonGroup">
-                  <a id="home" href="../"  class="btn btn-lg btn-block btn-info py-2 " >
-                     <i class="fas fa-home fa-lg"></i>
+                  <a id="" href="../"  class="btn btn-lg btn-block btn-info py-2 " >
+                  <i class="fas fa-home fa-lg"></i>
                   </a>
                </div>
                <div class="col">
-                  <a  id="feed" href="?s=0" class="btn btn-lg btn-block btn-info py-2 " >
+                  <a id="feed" href="../search/" class="btn btn-lg btn-block btn-info py-2 " >
                   <i class="fas fa-search fa-lg"></i>
                   </a>
                </div>
                <div class="col">
-                  <a id="account" href="../account" class="btn btn-lg btn-block btn-info py-2 " >
-                     <i class="fas fa-user fa-lg"></i>
+                  <a id="account" href="" class="btn btn-lg btn-block btn-info py-2 " >
+                  <i class="fas fa-user fa-lg"></i>
                   </a>
                </div>
             </div>
          </div>
       </footer>
-      
+     
       <!-- Bootstrap core JavaScript -->
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
       <!-- JS needed for this page -->
       <script type="text/javascript">
-      //Global variable for starting page
+         //Global variable for starting page
       var currentPageId = "page-<?php echo $page; ?>";
       var currentSelectorId = "<?php echo $page; ?>";
       </script>
       <script src="../js/main.js"></script>
       <script defer src="../js/all.js"></script>
+      <script src="../js/textarea.js"></script>
+      <script>
+          autoResizeTextarea(document.querySelectorAll("textarea.auto-resize"), { maxHeight: 2000 })
+      </script>
    </body>
 </html>
-<style type="text/css">
+<style type="text/css"> 
 .btn, .form-control-lg{
 border-radius: 10px;
 }
@@ -221,5 +177,5 @@ border-radius: 60px;
 box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .btn-label {position: relative;left: -12px;display: inline-block;padding: 10px 12px;background: rgba(0,0,0,0.15);border-radius: 10px 0 0 10px;}
-.btn-labeled {padding-top: 0;padding-bottom: 0; border-radius: 10px  10px;}
+.btn-labeled {padding-top: 0;padding-bottom: 0; border-radius: 10px  10px;} 
 </style>

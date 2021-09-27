@@ -12,6 +12,8 @@ $pesan = "<p class='mb-3 text-info'>Sign up success, please Sign in</p>";
 $pesan = "<p class='mb-3 text-danger'>Sign up failed, try again</p>"; 
 }else if($_GET['m']=="er-mail"){
 $pesan = "<p class='mb-3 text-danger'>Sign up failed, e-mail already used</p>"; 
+}if($_GET['m']=="signout"){
+$pesan = "<p class='mb-3 text-info'>Sign out complete, see u again :)</p>"; 
 }
 }
 ?>

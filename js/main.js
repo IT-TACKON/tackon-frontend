@@ -2,7 +2,7 @@
 //Function for getting the button ids
 function getButtons(){
     //List of button ids
-    var list = ["home", "feed",  "account", "create"];
+    var list = ["home", "feed",  "account", "create", "edit"];
     return list;
 }
 

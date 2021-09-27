@@ -1,4 +1,4 @@
-<div id="page-account" <?= $active_account ?>>>
+<div <?php echo $active_home; ?> id="page-home" >
    <?php
    $token = $_SESSION['authorization'];
    $headers[] = 'authorization: '.$token;
@@ -30,10 +30,12 @@
             <span class="avatar-text  avatar-text-info rounded-circle">
                <span class="initial-wrap">
                   <span><?= substr($username,0,1); ?></span>
+
                </span>
             </span>
          </div>
          <h3><?= $username ?></h3>
+         <?php if(isset($updated)){echo '<p class="text-info">Account updated.</p>'; }?>
          <table class="table mt-4 text-left">
             <tbody>
                <tr>
@@ -45,9 +47,10 @@
                   <td class="text-right"><?= $email ?></td>
                </tr> 
             </tbody>
-         </table>
+         </table> 
+ 
          <div class="d-flex justify-content-center">
-            <a class="btn btn-outline-info mt-2 col-8 py-2" href="#"><i class="fas fa-edit fa-lg"></i> Edit Account</a>
+            <button type="button" id="create"  class="btn btn-outline-info text-info mt-2 col-8 py-2 button-inactive" ><i class="fas fa-edit fa-lg"></i> Edit Account</button>
          </div>
           <div class="d-flex justify-content-center">
             <a class="btn btn-outline-danger mt-2 col-8 py-2" href="#"><i class="fas fa-trash fa-lg"></i> Delete Account</a>
