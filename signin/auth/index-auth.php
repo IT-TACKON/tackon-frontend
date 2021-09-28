@@ -40,6 +40,6 @@ $_SESSION['status'] = $result->status;
 $_SESSION['authorization'] = $result->accessToken;
 header("location:../../");
 }else if($result->status == "error"){
-	echo "daftar dulu bosque";
+	echo header("location:../");
 }
 ?>
