@@ -53,10 +53,10 @@
             <button type="button" id="create"  class="btn btn-outline-info text-info mt-2 col-8 py-2 button-inactive" ><i class="fas fa-edit fa-lg"></i> Edit Account</button>
          </div>
           <div class="d-flex justify-content-center">
-            <a class="btn btn-outline-danger mt-2 col-8 py-2" href="#"><i class="fas fa-trash fa-lg"></i> Delete Account</a>
+            <button class="btn btn-outline-danger mt-2 col-8 py-2"   data-toggle="modal" data-target="#exampleModal"><i class="fas fa-trash fa-lg"></i> Delete Account</button>
          </div>
           <div class="d-flex justify-content-center">
-            <a class="btn btn-outline-secondary mt-2 col-8 py-2" href="#"><i class="fas fa-sign-out-alt fa-lg"></i> Sign Out</a>
+            <a class="btn btn-outline-secondary mt-2 col-8 py-2" href="../signout"><i class="fas fa-sign-out-alt fa-lg"></i> Sign Out</a>
          </div>
 
       </div>
